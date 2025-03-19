@@ -1,7 +1,8 @@
-[gd_scene load_steps=6 format=3 uid="uid://dgrkyw45jo54r"]
+[gd_scene load_steps=7 format=3 uid="uid://dgrkyw45jo54r"]
 
 [ext_resource type="PackedScene" uid="uid://bjj43s3823xgs" path="res://Scenes/SmallWorld/Player/player_small.tscn" id="1_egjrx"]
 [ext_resource type="PackedScene" uid="uid://c4mbl7a20gfga" path="res://Scenes/SmallWorld/GUI/gui_small.tscn" id="2_hk0ga"]
+[ext_resource type="PackedScene" uid="uid://e0w1jyl0k6dx" path="res://Scenes/SmallWorld/Camera/camera_point.tscn" id="3_lnwf8"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_egjrx"]
 size = Vector3(20, 0.5, 20)
@@ -28,8 +29,7 @@ mesh = SubResource("BoxMesh_hk0ga")
 
 [node name="GUIsmall" parent="." instance=ExtResource("2_hk0ga")]
 
-[node name="Camera3D" type="Camera3D" parent="."]
-transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 7, 7)
-
 [node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
 transform = Transform3D(0.735973, 0.672832, -0.0751043, -0.259606, 0.382929, 0.88655, 0.625259, -0.632979, 0.456496, 0, 8.53763, 0)
+
+[node name="CameraPoint" parent="." instance=ExtResource("3_lnwf8")]

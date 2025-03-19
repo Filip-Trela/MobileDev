@@ -7,7 +7,7 @@ font_size = 32
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
-[node name="InputPlates" type="Node2D"]
+[node name="InputPlates" type="Node2D" groups=["Input"]]
 script = ExtResource("1_8mw2y")
 
 [node name="Left" type="Node2D" parent="."]

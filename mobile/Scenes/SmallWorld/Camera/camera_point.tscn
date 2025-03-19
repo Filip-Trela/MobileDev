@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://e0w1jyl0k6dx"]
+
+[ext_resource type="Script" uid="uid://bvss2ioe4f2vd" path="res://Scenes/SmallWorld/Camera/camera_point.gd" id="1_j4ea2"]
+
+[node name="CameraPoint" type="Node3D"]
+script = ExtResource("1_j4ea2")
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 7, 7)
