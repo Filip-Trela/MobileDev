@@ -1,0 +1,35 @@
+[gd_scene load_steps=6 format=3 uid="uid://dgrkyw45jo54r"]
+
+[ext_resource type="PackedScene" uid="uid://bjj43s3823xgs" path="res://Scenes/SmallWorld/Player/player_small.tscn" id="1_egjrx"]
+[ext_resource type="PackedScene" uid="uid://c4mbl7a20gfga" path="res://Scenes/SmallWorld/GUI/gui_small.tscn" id="2_hk0ga"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_egjrx"]
+size = Vector3(20, 0.5, 20)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_hk0ga"]
+albedo_color = Color(0, 0.671449, 0.0862063, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_hk0ga"]
+material = SubResource("StandardMaterial3D_hk0ga")
+size = Vector3(20, 0.5, 20)
+
+[node name="SmallWorld" type="Node3D"]
+
+[node name="PlayerSmall" parent="." instance=ExtResource("1_egjrx")]
+
+[node name="WorldPart" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="WorldPart"]
+shape = SubResource("BoxShape3D_egjrx")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="WorldPart"]
+mesh = SubResource("BoxMesh_hk0ga")
+
+[node name="GUIsmall" parent="." instance=ExtResource("2_hk0ga")]
+
+[node name="Camera3D" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 0.5, 0.866025, 0, -0.866025, 0.5, 0, 7, 7)
+
+[node name="DirectionalLight3D" type="DirectionalLight3D" parent="."]
+transform = Transform3D(0.735973, 0.672832, -0.0751043, -0.259606, 0.382929, 0.88655, 0.625259, -0.632979, 0.456496, 0, 8.53763, 0)

@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://c4mbl7a20gfga"]
+
+[ext_resource type="PackedScene" uid="uid://bldekg0iqeunq" path="res://Scenes/SmallWorld/GUI/InputPlates/input_plates.tscn" id="1_hsfen"]
+
+[node name="GUIsmall" type="CanvasLayer" groups=["GUI"]]
+
+[node name="InputPlates" parent="." instance=ExtResource("1_hsfen")]

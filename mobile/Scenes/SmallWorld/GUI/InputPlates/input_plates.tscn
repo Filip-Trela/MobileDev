@@ -1,0 +1,54 @@
+[gd_scene load_steps=3 format=3 uid="uid://bldekg0iqeunq"]
+
+[ext_resource type="Script" uid="uid://djaadqluiy6v5" path="res://Scenes/SmallWorld/GUI/InputPlates/input_plates.gd" id="1_8mw2y"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_msxws"]
+font_size = 32
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
+
+[node name="InputPlates" type="Node2D"]
+script = ExtResource("1_8mw2y")
+
+[node name="Left" type="Node2D" parent="."]
+
+[node name="LeftPlate" type="ColorRect" parent="Left"]
+offset_right = 1230.0
+offset_bottom = 1080.0
+color = Color(1, 1, 1, 0)
+
+[node name="TimerLeft" type="Timer" parent="Left"]
+wait_time = 20.0
+
+[node name="Right" type="Node2D" parent="."]
+position = Vector2(1230, 0)
+
+[node name="RightPlate" type="ColorRect" parent="Right"]
+offset_right = 1230.0
+offset_bottom = 1080.0
+color = Color(1, 1, 1, 0)
+
+[node name="TimerRight" type="Timer" parent="Right"]
+wait_time = 0.1
+
+[node name="LabelLeft" type="Label" parent="."]
+offset_right = 1225.0
+offset_bottom = 158.0
+text = "xbvbngfn"
+label_settings = SubResource("LabelSettings_msxws")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="LabelRight" type="Label" parent="."]
+offset_left = 1235.0
+offset_right = 2460.0
+offset_bottom = 158.0
+text = "xbvbngfn"
+label_settings = SubResource("LabelSettings_msxws")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="gui_input" from="Left/LeftPlate" to="." method="_on_left_plate_gui_input"]
+[connection signal="timeout" from="Left/TimerLeft" to="." method="_on_timer_left_timeout"]
+[connection signal="gui_input" from="Right/RightPlate" to="." method="_on_right_plate_gui_input"]
+[connection signal="timeout" from="Right/TimerRight" to="." method="_on_timer_right_timeout"]
