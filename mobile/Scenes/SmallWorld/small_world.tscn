@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgrkyw45jo54r"]
+[gd_scene load_steps=9 format=3 uid="uid://dgrkyw45jo54r"]
 
 [ext_resource type="PackedScene" uid="uid://bjj43s3823xgs" path="res://Scenes/SmallWorld/Player/player_small.tscn" id="1_egjrx"]
 [ext_resource type="PackedScene" uid="uid://c4mbl7a20gfga" path="res://Scenes/SmallWorld/GUI/gui_small.tscn" id="2_hk0ga"]
 [ext_resource type="PackedScene" uid="uid://e0w1jyl0k6dx" path="res://Scenes/SmallWorld/Camera/camera_point.tscn" id="3_lnwf8"]
+[ext_resource type="PackedScene" uid="uid://ri3fd84l7k27" path="res://Scenes/SmallWorld/Entity/Enemies/Dummy/dummy.tscn" id="4_f1iql"]
+[ext_resource type="PackedScene" uid="uid://dwy44cq2dqqur" path="res://Scenes/SmallWorld/Director/director_small.tscn" id="5_452vn"]
 
 [sub_resource type="BoxShape3D" id="BoxShape3D_egjrx"]
 size = Vector3(20, 0.5, 20)
@@ -14,12 +16,13 @@ albedo_color = Color(0, 0.671449, 0.0862063, 1)
 material = SubResource("StandardMaterial3D_hk0ga")
 size = Vector3(20, 0.5, 20)
 
-[node name="SmallWorld" type="Node3D"]
+[node name="SmallWorld" type="Node3D" groups=["SmallWorld"]]
 
 [node name="PlayerSmall" parent="." instance=ExtResource("1_egjrx")]
 
 [node name="WorldPart" type="StaticBody3D" parent="."]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, 0)
+collision_mask = 0
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="WorldPart"]
 shape = SubResource("BoxShape3D_egjrx")
@@ -33,3 +36,28 @@ mesh = SubResource("BoxMesh_hk0ga")
 transform = Transform3D(0.735973, 0.672832, -0.0751043, -0.259606, 0.382929, 0.88655, 0.625259, -0.632979, 0.456496, 0, 8.53763, 0)
 
 [node name="CameraPoint" parent="." instance=ExtResource("3_lnwf8")]
+
+[node name="Borders" type="Node3D" parent="."]
+
+[node name="Left" type="Node3D" parent="Borders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10, 0, 0)
+
+[node name="Right" type="Node3D" parent="Borders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0)
+
+[node name="Top" type="Node3D" parent="Borders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -10)
+
+[node name="Down" type="Node3D" parent="Borders"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 10)
+
+[node name="Dummy" parent="." instance=ExtResource("4_f1iql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 0)
+
+[node name="Dummy2" parent="." instance=ExtResource("4_f1iql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, -2.78323)
+
+[node name="Dummy3" parent="." instance=ExtResource("4_f1iql")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 0, 3.77917)
+
+[node name="DirectorSmall" parent="." instance=ExtResource("5_452vn")]

@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dwy44cq2dqqur"]
+
+[ext_resource type="Script" uid="uid://dno4rk23dwbta" path="res://Scenes/SmallWorld/Director/director_small.gd" id="1_1jpgb"]
+
+[node name="DirectorSmall" type="Node" groups=["Director"]]
+script = ExtResource("1_1jpgb")
